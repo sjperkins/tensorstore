@@ -1,0 +1,1936 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="cpp/api/tensorstore.SpanStaticExtent.html">
+      
+      
+        <link rel="next" href="environment.html">
+      
+      
+      <link rel="icon" href="_static/logo.svg">
+    
+    
+      
+        <title>Building and Installing - TensorStore</title>
+      
+    
+    
+      
+        
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+        <link rel="stylesheet" type="text/css" href="_static/sphinx_immaterial_theme.6efbe22605a23fcd6.min.css?v=b2ceb110" />
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python-api-from-pypi" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="TensorStore" class="md-header__button md-logo" aria-label="TensorStore" data-md-component="logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132.0 132.0"><line stroke="currentColor" stroke-width="1.5" x1="1.25" y1="2.0" x2="130.8" y2="2.0"/><line stroke="currentColor" stroke-width="1.5" x1="1.25" y1="16.2" x2="130.8" y2="16.2"/><line stroke="currentColor" stroke-width="1.5" x1="1.25" y1="30.4" x2="130.8" y2="30.4"/><line stroke="currentColor" stroke-width="1.5" x1="1.25" y1="44.7" x2="130.8" y2="44.7"/><line stroke="currentColor" stroke-width="1.5" x1="1.25" y1="58.9" x2="130.8" y2="58.9"/><line stroke="currentColor" stroke-width="1.5" x1="1.25" y1="73.1" x2="130.8" y2="73.1"/><line stroke="currentColor" stroke-width="1.5" x1="1.25" y1="87.3" x2="130.8" y2="87.3"/><line stroke="currentColor" stroke-width="1.5" x1="1.25" y1="101.6" x2="130.8" y2="101.6"/><line stroke="currentColor" stroke-width="1.5" x1="1.25" y1="115.8" x2="130.8" y2="115.8"/><line stroke="currentColor" stroke-width="1.5" x1="1.25" y1="130.0" x2="130.8" y2="130.0"/><line stroke="currentColor" stroke-width="1.5" y1="2" x1="2.0" y2="130.0" x2="2.0"/><line stroke="currentColor" stroke-width="1.5" y1="2" x1="16.2" y2="130.0" x2="16.2"/><line stroke="currentColor" stroke-width="1.5" y1="2" x1="30.4" y2="130.0" x2="30.4"/><line stroke="currentColor" stroke-width="1.5" y1="2" x1="44.7" y2="130.0" x2="44.7"/><line stroke="currentColor" stroke-width="1.5" y1="2" x1="58.9" y2="130.0" x2="58.9"/><line stroke="currentColor" stroke-width="1.5" y1="2" x1="73.1" y2="130.0" x2="73.1"/><line stroke="currentColor" stroke-width="1.5" y1="2" x1="87.3" y2="130.0" x2="87.3"/><line stroke="currentColor" stroke-width="1.5" y1="2" x1="101.6" y2="130.0" x2="101.6"/><line stroke="currentColor" stroke-width="1.5" y1="2" x1="115.8" y2="130.0" x2="115.8"/><line stroke="currentColor" stroke-width="1.5" y1="2" x1="130.0" y2="130.0" x2="130.0"/><rect fill="currentColor" x="3.5" y="3.5" width="11.2" height="11.2"/><rect fill="currentColor" x="17.7" y="3.5" width="11.2" height="11.2"/><rect fill="currentColor" x="31.9" y="3.5" width="11.2" height="11.2"/><rect fill="currentColor" x="46.2" y="3.5" width="11.2" height="11.2"/><rect fill="currentColor" x="60.4" y="3.5" width="11.2" height="11.2"/><rect fill="currentColor" x="31.9" y="17.7" width="11.2" height="11.2"/><rect fill="currentColor" x="31.9" y="31.9" width="11.2" height="11.2"/><rect fill="currentColor" x="74.6" y="31.9" width="11.2" height="11.2"/><rect fill="currentColor" x="88.8" y="31.9" width="11.2" height="11.2"/><rect fill="currentColor" x="103.1" y="31.9" width="11.2" height="11.2"/><rect fill="currentColor" x="31.9" y="46.2" width="11.2" height="11.2"/><rect fill="currentColor" x="60.4" y="46.2" width="11.2" height="11.2"/><rect fill="currentColor" x="117.3" y="46.2" width="11.2" height="11.2"/><rect fill="currentColor" x="31.9" y="60.4" width="11.2" height="11.2"/><rect fill="currentColor" x="74.6" y="60.4" width="11.2" height="11.2"/><rect fill="currentColor" x="31.9" y="74.6" width="11.2" height="11.2"/><rect fill="currentColor" x="88.8" y="74.6" width="11.2" height="11.2"/><rect fill="currentColor" x="31.9" y="88.8" width="11.2" height="11.2"/><rect fill="currentColor" x="103.1" y="88.8" width="11.2" height="11.2"/><rect fill="currentColor" x="60.4" y="103.1" width="11.2" height="11.2"/><rect fill="currentColor" x="117.3" y="103.1" width="11.2" height="11.2"/><rect fill="currentColor" x="74.6" y="117.3" width="11.2" height="11.2"/><rect fill="currentColor" x="88.8" y="117.3" width="11.2" height="11.2"/><rect fill="currentColor" x="103.1" y="117.3" width="11.2" height="11.2"/></svg>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TensorStore
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Building and Installing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/google/tensorstore/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    tensorstore
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="TensorStore" class="md-nav__button md-logo" aria-label="TensorStore" data-md-component="logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132.0 132.0"><line stroke="currentColor" stroke-width="1.5" x1="1.25" y1="2.0" x2="130.8" y2="2.0"/><line stroke="currentColor" stroke-width="1.5" x1="1.25" y1="16.2" x2="130.8" y2="16.2"/><line stroke="currentColor" stroke-width="1.5" x1="1.25" y1="30.4" x2="130.8" y2="30.4"/><line stroke="currentColor" stroke-width="1.5" x1="1.25" y1="44.7" x2="130.8" y2="44.7"/><line stroke="currentColor" stroke-width="1.5" x1="1.25" y1="58.9" x2="130.8" y2="58.9"/><line stroke="currentColor" stroke-width="1.5" x1="1.25" y1="73.1" x2="130.8" y2="73.1"/><line stroke="currentColor" stroke-width="1.5" x1="1.25" y1="87.3" x2="130.8" y2="87.3"/><line stroke="currentColor" stroke-width="1.5" x1="1.25" y1="101.6" x2="130.8" y2="101.6"/><line stroke="currentColor" stroke-width="1.5" x1="1.25" y1="115.8" x2="130.8" y2="115.8"/><line stroke="currentColor" stroke-width="1.5" x1="1.25" y1="130.0" x2="130.8" y2="130.0"/><line stroke="currentColor" stroke-width="1.5" y1="2" x1="2.0" y2="130.0" x2="2.0"/><line stroke="currentColor" stroke-width="1.5" y1="2" x1="16.2" y2="130.0" x2="16.2"/><line stroke="currentColor" stroke-width="1.5" y1="2" x1="30.4" y2="130.0" x2="30.4"/><line stroke="currentColor" stroke-width="1.5" y1="2" x1="44.7" y2="130.0" x2="44.7"/><line stroke="currentColor" stroke-width="1.5" y1="2" x1="58.9" y2="130.0" x2="58.9"/><line stroke="currentColor" stroke-width="1.5" y1="2" x1="73.1" y2="130.0" x2="73.1"/><line stroke="currentColor" stroke-width="1.5" y1="2" x1="87.3" y2="130.0" x2="87.3"/><line stroke="currentColor" stroke-width="1.5" y1="2" x1="101.6" y2="130.0" x2="101.6"/><line stroke="currentColor" stroke-width="1.5" y1="2" x1="115.8" y2="130.0" x2="115.8"/><line stroke="currentColor" stroke-width="1.5" y1="2" x1="130.0" y2="130.0" x2="130.0"/><rect fill="currentColor" x="3.5" y="3.5" width="11.2" height="11.2"/><rect fill="currentColor" x="17.7" y="3.5" width="11.2" height="11.2"/><rect fill="currentColor" x="31.9" y="3.5" width="11.2" height="11.2"/><rect fill="currentColor" x="46.2" y="3.5" width="11.2" height="11.2"/><rect fill="currentColor" x="60.4" y="3.5" width="11.2" height="11.2"/><rect fill="currentColor" x="31.9" y="17.7" width="11.2" height="11.2"/><rect fill="currentColor" x="31.9" y="31.9" width="11.2" height="11.2"/><rect fill="currentColor" x="74.6" y="31.9" width="11.2" height="11.2"/><rect fill="currentColor" x="88.8" y="31.9" width="11.2" height="11.2"/><rect fill="currentColor" x="103.1" y="31.9" width="11.2" height="11.2"/><rect fill="currentColor" x="31.9" y="46.2" width="11.2" height="11.2"/><rect fill="currentColor" x="60.4" y="46.2" width="11.2" height="11.2"/><rect fill="currentColor" x="117.3" y="46.2" width="11.2" height="11.2"/><rect fill="currentColor" x="31.9" y="60.4" width="11.2" height="11.2"/><rect fill="currentColor" x="74.6" y="60.4" width="11.2" height="11.2"/><rect fill="currentColor" x="31.9" y="74.6" width="11.2" height="11.2"/><rect fill="currentColor" x="88.8" y="74.6" width="11.2" height="11.2"/><rect fill="currentColor" x="31.9" y="88.8" width="11.2" height="11.2"/><rect fill="currentColor" x="103.1" y="88.8" width="11.2" height="11.2"/><rect fill="currentColor" x="60.4" y="103.1" width="11.2" height="11.2"/><rect fill="currentColor" x="117.3" y="103.1" width="11.2" height="11.2"/><rect fill="currentColor" x="74.6" y="117.3" width="11.2" height="11.2"/><rect fill="currentColor" x="88.8" y="117.3" width="11.2" height="11.2"/><rect fill="currentColor" x="103.1" y="117.3" width="11.2" height="11.2"/></svg>
+    </a>
+    TensorStore
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/google/tensorstore/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    tensorstore
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    <span>Python API</span>
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            <span>Python API</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="python/tutorial.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Tutorial</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="python/indexing.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Indexing</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="python/api/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>API reference</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    <span>C++ API</span>
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            <span>C++ API</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cpp/api/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>API reference</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    <span>Setup</span>
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            <span>Setup</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    <span>Building and Installing</span>
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="#" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Building and Installing</span>
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      <span>Building and Installing</span>
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#python-api-from-pypi" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Python API from Py<wbr>PI</span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-api-from-source" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Python API from Source</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python API from Source">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-checkout-installation" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Local checkout installation</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Local checkout installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#envvar-TENSORSTORE_BAZELISK" class="md-nav__link">
+    
+      <span aria-label="environment variable" class="objinfo-icon objinfo-icon__alias" title="environment variable">$</span>
+    
+    <span class="md-ellipsis">
+      <span title="TENSORSTORE_BAZELISK (environment variable) — Path to Bazelisk script that is invoked in order to execute the build.  By default the bundled bazelisk.py is used, but this environment variable allows that to be overridden in order to pass additional options, etc."><span>TENSORSTORE_<wbr>BAZELISK</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envvar-BAZELISK_HOME" class="md-nav__link">
+    
+      <span aria-label="environment variable" class="objinfo-icon objinfo-icon__alias" title="environment variable">$</span>
+    
+    <span class="md-ellipsis">
+      <span title="BAZELISK_HOME (environment variable) — Duplicate explicit target name: &#34;bazelisk&#34;."><span>BAZELISK_<wbr>HOME</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envvar-TENSORSTORE_BAZEL_COMPILATION_MODE" class="md-nav__link">
+    
+      <span aria-label="environment variable" class="objinfo-icon objinfo-icon__alias" title="environment variable">$</span>
+    
+    <span class="md-ellipsis">
+      <span title="TENSORSTORE_BAZEL_COMPILATION_MODE (environment variable) — Bazel compilation mode to use.  Defaults to opt (optimized build)."><span>TENSORSTORE_<wbr>BAZEL_<wbr>COMPILATION_<wbr>MODE</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envvar-TENSORSTORE_BAZEL_STARTUP_OPTIONS" class="md-nav__link">
+    
+      <span aria-label="environment variable" class="objinfo-icon objinfo-icon__alias" title="environment variable">$</span>
+    
+    <span class="md-ellipsis">
+      <span title="TENSORSTORE_BAZEL_STARTUP_OPTIONS (environment variable) — Additional Bazel startup options to specify when building.  Multiple options may be separated by spaces; options containing spaces or other special characters should be encoded according to Posix shell escaping rules as implemented by shlex.split()."><span>TENSORSTORE_<wbr>BAZEL_<wbr>STARTUP_<wbr>OPTIONS</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envvar-TENSORSTORE_BAZEL_BUILD_OPTIONS" class="md-nav__link">
+    
+      <span aria-label="environment variable" class="objinfo-icon objinfo-icon__alias" title="environment variable">$</span>
+    
+    <span class="md-ellipsis">
+      <span title="TENSORSTORE_BAZEL_BUILD_OPTIONS (environment variable) — Additional Bazel build options or configuration settings to specify when building.  The encoding is the same as for TENSORSTORE_BAZEL_STARTUP_OPTIONS."><span>TENSORSTORE_<wbr>BAZEL_<wbr>BUILD_<wbr>OPTIONS</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envvar-ARCHFLAGS" class="md-nav__link">
+    
+      <span aria-label="environment variable" class="objinfo-icon objinfo-icon__alias" title="environment variable">$</span>
+    
+    <span class="md-ellipsis">
+      <span title="ARCHFLAGS (environment variable) — macOS only.  Specifies the CPU architecture to target for cross-compilation. May be -arch x86_64 or -arch arm64.  Universal2 builds (specified by -arch arm64 -arch x86_64 are not supported)."><span>ARCHFLAGS</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envvar-MACOSX_DEPLOYMENT_TARGET" class="md-nav__link">
+    
+      <span aria-label="environment variable" class="objinfo-icon objinfo-icon__alias" title="environment variable">$</span>
+    
+    <span class="md-ellipsis">
+      <span title="MACOSX_DEPLOYMENT_TARGET (environment variable) — macOS only.  Specifies the minimum required macOS version to target.  Must not be earlier than 10.14.  If not specified, defaults to the same macOS version required by the Python binary itself, or 10.14 if later."><span>MACOSX_<wbr>DEPLOYMENT_<wbr>TARGET</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envvar-TENSORSTORE_PREBUILT_DIR" class="md-nav__link">
+    
+      <span aria-label="environment variable" class="objinfo-icon objinfo-icon__alias" title="environment variable">$</span>
+    
+    <span class="md-ellipsis">
+      <span title="TENSORSTORE_PREBUILT_DIR (environment variable) — If specified, building is skipped, and instead setup.py expects to find the pre-built extension module in the specified directory, from a prior invocation of build_ext:"><span>TENSORSTORE_<wbr>PREBUILT_<wbr>DIR</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipython-shell-without-installing" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>IPython shell without installing</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-api" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>C++ API</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="C++ API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bazel-integration" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Bazel integration</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmake-integration" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>CMake integration</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CMake integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-generators" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Supported generators</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#third-party-dependencies" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Third-<wbr>party dependencies</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-caching" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Build caching</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Development</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-the-documentation" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Building the documentation</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-tests" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Running tests</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-requirements" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span title="build-requirements (reference label)"><span>Build Requirements</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Build Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bazel-build-requirements" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span title="bazel-build-requirements (reference label)"><span>Bazel Build Requirements</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bazel Build Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#envvar-TENSORSTORE_SYSTEM_LIBS" class="md-nav__link">
+    
+      <span aria-label="environment variable" class="objinfo-icon objinfo-icon__alias" title="environment variable">$</span>
+    
+    <span class="md-ellipsis">
+      <span title="TENSORSTORE_SYSTEM_LIBS (environment variable) — To use system-provided libraries, set the TENSORSTORE_SYSTEM_LIBS environment variable to a comma-separated list of the following identifiers prior to invoking Bazel:"><span>TENSORSTORE_<wbr>SYSTEM_<wbr>LIBS</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envvar-PYTHON_BIN_PATH" class="md-nav__link">
+    
+      <span aria-label="environment variable" class="objinfo-icon objinfo-icon__alias" title="environment variable">$</span>
+    
+    <span class="md-ellipsis">
+      <span title="PYTHON_BIN_PATH (environment variable) — Path to Python binary to use when running Python executables/tests.  When Bazel is invoked by the Python package build (setup.py), this is set automatically."><span>PYTHON_<wbr>BIN_<wbr>PATH</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmake-build-requirements" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span title="cmake-build-requirements (reference label)"><span>CMake Build Requirements</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="environment.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Environment variables</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    <span>JSON</span>
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            <span>JSON</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="spec.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>JSON Spec</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index_space.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Index space</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="schema.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Schema</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="context.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Context framework</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="driver/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Drivers</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kvstore/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Key-<wbr>Value Storage Layer</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      <span>Building and Installing</span>
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#python-api-from-pypi" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Python API from Py<wbr>PI</span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-api-from-source" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Python API from Source</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python API from Source">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-checkout-installation" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Local checkout installation</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Local checkout installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#envvar-TENSORSTORE_BAZELISK" class="md-nav__link">
+    
+      <span aria-label="environment variable" class="objinfo-icon objinfo-icon__alias" title="environment variable">$</span>
+    
+    <span class="md-ellipsis">
+      <span title="TENSORSTORE_BAZELISK (environment variable) — Path to Bazelisk script that is invoked in order to execute the build.  By default the bundled bazelisk.py is used, but this environment variable allows that to be overridden in order to pass additional options, etc."><span>TENSORSTORE_<wbr>BAZELISK</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envvar-BAZELISK_HOME" class="md-nav__link">
+    
+      <span aria-label="environment variable" class="objinfo-icon objinfo-icon__alias" title="environment variable">$</span>
+    
+    <span class="md-ellipsis">
+      <span title="BAZELISK_HOME (environment variable) — Duplicate explicit target name: &#34;bazelisk&#34;."><span>BAZELISK_<wbr>HOME</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envvar-TENSORSTORE_BAZEL_COMPILATION_MODE" class="md-nav__link">
+    
+      <span aria-label="environment variable" class="objinfo-icon objinfo-icon__alias" title="environment variable">$</span>
+    
+    <span class="md-ellipsis">
+      <span title="TENSORSTORE_BAZEL_COMPILATION_MODE (environment variable) — Bazel compilation mode to use.  Defaults to opt (optimized build)."><span>TENSORSTORE_<wbr>BAZEL_<wbr>COMPILATION_<wbr>MODE</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envvar-TENSORSTORE_BAZEL_STARTUP_OPTIONS" class="md-nav__link">
+    
+      <span aria-label="environment variable" class="objinfo-icon objinfo-icon__alias" title="environment variable">$</span>
+    
+    <span class="md-ellipsis">
+      <span title="TENSORSTORE_BAZEL_STARTUP_OPTIONS (environment variable) — Additional Bazel startup options to specify when building.  Multiple options may be separated by spaces; options containing spaces or other special characters should be encoded according to Posix shell escaping rules as implemented by shlex.split()."><span>TENSORSTORE_<wbr>BAZEL_<wbr>STARTUP_<wbr>OPTIONS</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envvar-TENSORSTORE_BAZEL_BUILD_OPTIONS" class="md-nav__link">
+    
+      <span aria-label="environment variable" class="objinfo-icon objinfo-icon__alias" title="environment variable">$</span>
+    
+    <span class="md-ellipsis">
+      <span title="TENSORSTORE_BAZEL_BUILD_OPTIONS (environment variable) — Additional Bazel build options or configuration settings to specify when building.  The encoding is the same as for TENSORSTORE_BAZEL_STARTUP_OPTIONS."><span>TENSORSTORE_<wbr>BAZEL_<wbr>BUILD_<wbr>OPTIONS</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envvar-ARCHFLAGS" class="md-nav__link">
+    
+      <span aria-label="environment variable" class="objinfo-icon objinfo-icon__alias" title="environment variable">$</span>
+    
+    <span class="md-ellipsis">
+      <span title="ARCHFLAGS (environment variable) — macOS only.  Specifies the CPU architecture to target for cross-compilation. May be -arch x86_64 or -arch arm64.  Universal2 builds (specified by -arch arm64 -arch x86_64 are not supported)."><span>ARCHFLAGS</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envvar-MACOSX_DEPLOYMENT_TARGET" class="md-nav__link">
+    
+      <span aria-label="environment variable" class="objinfo-icon objinfo-icon__alias" title="environment variable">$</span>
+    
+    <span class="md-ellipsis">
+      <span title="MACOSX_DEPLOYMENT_TARGET (environment variable) — macOS only.  Specifies the minimum required macOS version to target.  Must not be earlier than 10.14.  If not specified, defaults to the same macOS version required by the Python binary itself, or 10.14 if later."><span>MACOSX_<wbr>DEPLOYMENT_<wbr>TARGET</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envvar-TENSORSTORE_PREBUILT_DIR" class="md-nav__link">
+    
+      <span aria-label="environment variable" class="objinfo-icon objinfo-icon__alias" title="environment variable">$</span>
+    
+    <span class="md-ellipsis">
+      <span title="TENSORSTORE_PREBUILT_DIR (environment variable) — If specified, building is skipped, and instead setup.py expects to find the pre-built extension module in the specified directory, from a prior invocation of build_ext:"><span>TENSORSTORE_<wbr>PREBUILT_<wbr>DIR</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipython-shell-without-installing" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>IPython shell without installing</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-api" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>C++ API</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="C++ API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bazel-integration" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Bazel integration</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmake-integration" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>CMake integration</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CMake integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-generators" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Supported generators</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#third-party-dependencies" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Third-<wbr>party dependencies</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-caching" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Build caching</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Development</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-the-documentation" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Building the documentation</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-tests" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Running tests</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-requirements" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span title="build-requirements (reference label)"><span>Build Requirements</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Build Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bazel-build-requirements" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span title="bazel-build-requirements (reference label)"><span>Bazel Build Requirements</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bazel Build Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#envvar-TENSORSTORE_SYSTEM_LIBS" class="md-nav__link">
+    
+      <span aria-label="environment variable" class="objinfo-icon objinfo-icon__alias" title="environment variable">$</span>
+    
+    <span class="md-ellipsis">
+      <span title="TENSORSTORE_SYSTEM_LIBS (environment variable) — To use system-provided libraries, set the TENSORSTORE_SYSTEM_LIBS environment variable to a comma-separated list of the following identifiers prior to invoking Bazel:"><span>TENSORSTORE_<wbr>SYSTEM_<wbr>LIBS</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envvar-PYTHON_BIN_PATH" class="md-nav__link">
+    
+      <span aria-label="environment variable" class="objinfo-icon objinfo-icon__alias" title="environment variable">$</span>
+    
+    <span class="md-ellipsis">
+      <span title="PYTHON_BIN_PATH (environment variable) — Path to Python binary to use when running Python executables/tests.  When Bazel is invoked by the Python package build (setup.py), this is set automatically."><span>PYTHON_<wbr>BIN_<wbr>PATH</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmake-build-requirements" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span title="cmake-build-requirements (reference label)"><span>CMake Build Requirements</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset" role="main">
+                
+                
+                  
+
+
+<h1 id="building-and-installing">Building and Installing<a class="headerlink" href="#building-and-installing" title="Link to this heading">¶</a></h1>
+<p>TensorStore provides both a <a class="reference internal" href="python/api/index.html#python-api"><span class="std std-ref">Python API</span></a> and a C++ API.</p>
+<h2 id="python-api-from-pypi">Python API from PyPI<a class="headerlink" href="#python-api-from-pypi" title="Link to this heading">¶</a></h2>
+<p>The simplest and fastest way to start using TensorStore is to install
+a PyPI package and use the TensorStore <a class="reference internal" href="python/api/index.html#python-api"><span class="std std-ref">Python API</span></a> bindings.
+TensorStore requires Python 3.11 or later.</p>
+<p>The Python bindings can be installed directly from the <a class="reference external" href="https://pypi.org/project/tensorstore/">tensorstore PyPI package</a> using <a class="reference external" href="https://pip.pypa.io/en/stable/">pip</a>.  It is recommended to first create a
+<a class="reference external" href="https://packaging.python.org/tutorials/installing-packages/#creating-virtual-environments">virtual environment</a>.</p>
+<p>To install the latest published version, use:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><code><span class="c1"># Use -vv option to show progress</span>
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>tensorstore<span class="w"> </span>-vv
+</code></pre></div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>On Windows, you may have to use instead:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><code>py<span class="w"> </span>-3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>tensorstore<span class="w"> </span>-vv
+</code></pre></div>
+</div>
+</div>
+<p>If a pre-built binary package is available for your specific platform and Python
+version, it will be used and no additional build tools are required.  Otherwise,
+the package will be built from the source distribution and the
+<a class="reference internal" href="#build-requirements"><span class="std std-ref">build requirements</span></a> must already be installed.</p>
+<h2 id="python-api-from-source">Python API from Source<a class="headerlink" href="#python-api-from-source" title="Link to this heading">¶</a></h2>
+<p>To make changes to the TensorStore source code, an installation from a
+local checkout of the git repository is necessary. The TensorStore build has
+some prerequisites.</p>
+<p>The <a class="reference external" href="https://bazel.build/">Bazel build system</a> is used automatically when
+building the Python API, and has additional <a class="reference internal" href="#bazel-build-requirements"><span class="std std-ref">build options</span></a>.</p>
+<p>When using installing from source for the Python API, consider creating a python
+<a class="reference external" href="https://packaging.python.org/tutorials/installing-packages/#creating-virtual-environments">virtual environment</a>
+with with the python dependencies:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>ts-venv
+<span class="nb">source</span><span class="w"> </span>ts-venv/bin/activate
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip<span class="w"> </span>setuptools<span class="w"> </span>numpy
+</code></pre></div>
+</div>
+<h3 id="local-checkout-installation">Local checkout installation<a class="headerlink" href="#local-checkout-installation" title="Link to this heading">¶</a></h3>
+<p>Install from a local checkout of the git repository:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/google/tensorstore
+<span class="nb">cd</span><span class="w"> </span>tensorstore
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>.
+</code></pre></div>
+</div>
+<p>This invokes <a class="reference external" href="https://bazel.build/">Bazel</a> to build the TensorStore C++
+extension module.  You must have the required
+<a class="reference internal" href="#build-requirements"><span class="std std-ref">build prerequisites</span></a> installed.</p>
+<p>After making changes to the C++ source code, you must re-run:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>.
+</code></pre></div>
+</div>
+<p>to rebuild the extension module.  Rebuilds will be faster than the initial
+since most of the build is incremental.</p>
+<p>The build is affected by the following environment variables:</p>
+<dl class="std envvar objdesc">
+<dt class="sig sig-object highlight std" id="envvar-TENSORSTORE_BAZELISK">
+<span class="sig-name descname"><span class="pre">TENSORSTORE_BAZELISK</span></span><a class="headerlink" href="#envvar-TENSORSTORE_BAZELISK" title="Link to this definition">¶</a></dt>
+<dd><p>Path to <a class="reference external" href="https://github.com/bazelbuild/bazelisk">Bazelisk</a> script that is
+invoked in order to execute the build.  By default the bundled
+<code class="docutils literal notranslate"><span class="pre">bazelisk.py</span></code> is used, but this environment variable allows that to be
+overridden in order to pass additional options, etc.</p>
+</dd></dl>
+
+<dl class="std envvar objdesc">
+<dt class="sig sig-object highlight std" id="envvar-BAZELISK_HOME">
+<span class="sig-name descname"><span class="pre">BAZELISK_HOME</span></span><a class="headerlink" href="#envvar-BAZELISK_HOME" title="Link to this definition">¶</a></dt>
+<dd><p>Path to cache directory used by <a class="reference external" href="https://github.com/bazelbuild/bazelisk">Bazelisk</a> for downloaded Bazel versions.
+Defaults to a platform-specific cache directory.</p>
+</dd></dl>
+
+<dl class="std envvar objdesc">
+<dt class="sig sig-object highlight std" id="envvar-TENSORSTORE_BAZEL_COMPILATION_MODE">
+<span class="sig-name descname"><span class="pre">TENSORSTORE_BAZEL_COMPILATION_MODE</span></span><a class="headerlink" href="#envvar-TENSORSTORE_BAZEL_COMPILATION_MODE" title="Link to this definition">¶</a></dt>
+<dd><p>Bazel <a class="reference external" href="https://docs.bazel.build/versions/master/user-manual.html#flag--compilation_mode">compilation mode</a>
+to use.  Defaults to <code class="docutils literal notranslate"><span class="pre">opt</span></code> (optimized build).</p>
+</dd></dl>
+
+<dl class="std envvar objdesc">
+<dt class="sig sig-object highlight std" id="envvar-TENSORSTORE_BAZEL_STARTUP_OPTIONS">
+<span class="sig-name descname"><span class="pre">TENSORSTORE_BAZEL_STARTUP_OPTIONS</span></span><a class="headerlink" href="#envvar-TENSORSTORE_BAZEL_STARTUP_OPTIONS" title="Link to this definition">¶</a></dt>
+<dd><p>Additional <a class="reference external" href="https://docs.bazel.build/versions/master/user-manual.html#startup_options">Bazel startup options</a>
+to specify when building.  Multiple options may be separated by spaces;
+options containing spaces or other special characters should be encoded
+according to Posix shell escaping rules as implemented by
+<a class="reference external" href="https://docs.python.org/3/library/shlex.html#shlex.split" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">shlex.split()</span></code></a>.</p>
+<p>This may be used to specify a non-standard cache directory:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><code><span class="nv">TENSORSTORE_BAZEL_STARTUP_OPTIONS</span><span class="o">=</span><span class="s2">&quot;--output_user_root /path/to/bazel_cache&quot;</span>
+</code></pre></div>
+</div>
+</dd></dl>
+
+<dl class="std envvar objdesc">
+<dt class="sig sig-object highlight std" id="envvar-TENSORSTORE_BAZEL_BUILD_OPTIONS">
+<span class="sig-name descname"><span class="pre">TENSORSTORE_BAZEL_BUILD_OPTIONS</span></span><a class="headerlink" href="#envvar-TENSORSTORE_BAZEL_BUILD_OPTIONS" title="Link to this definition">¶</a></dt>
+<dd><p>Additional <a class="reference external" href="https://docs.bazel.build/versions/master/user-manual.html#semantics-options">Bazel build options</a>
+or <a class="reference external" href="https://bazel.build/extending/config#user-defined-build-settings">configuration settings</a>
+to specify when building.  The encoding is the same as for
+<span class="target" id="index-0"></span><a class="reference internal" href="#envvar-TENSORSTORE_BAZEL_STARTUP_OPTIONS" title="TENSORSTORE_BAZEL_STARTUP_OPTIONS (environment variable) — Additional Bazel startup options to specify when building.  Multiple options may be separated by spaces; options containing spaces or other special characters should be encoded according to Posix shell escaping rules as implemented by shlex.split()."><code class="xref std std-envvar docutils literal notranslate"><span class="pre">TENSORSTORE_BAZEL_STARTUP_OPTIONS</span></code></a>.</p>
+<p>This may be used to enable additional debugging in tensorstore; see
+<code class="docutils literal notranslate"><span class="pre">bool_flag</span></code> use in <code class="docutils literal notranslate"><span class="pre">BUILD</span></code> files for more details.</p>
+</dd></dl>
+
+<dl class="std envvar objdesc">
+<dt class="sig sig-object highlight std" id="envvar-ARCHFLAGS">
+<span class="sig-name descname"><span class="pre">ARCHFLAGS</span></span><a class="headerlink" href="#envvar-ARCHFLAGS" title="Link to this definition">¶</a></dt>
+<dd><p>macOS only.  Specifies the CPU architecture to target for cross-compilation.
+May be <code class="docutils literal notranslate"><span class="pre">-arch</span> <span class="pre">x86_64</span></code> or <code class="docutils literal notranslate"><span class="pre">-arch</span> <span class="pre">arm64</span></code>.  Universal2 builds (specified by
+<code class="docutils literal notranslate"><span class="pre">-arch</span> <span class="pre">arm64</span> <span class="pre">-arch</span> <span class="pre">x86_64</span></code> are <em>not</em> supported).</p>
+</dd></dl>
+
+<dl class="std envvar objdesc">
+<dt class="sig sig-object highlight std" id="envvar-MACOSX_DEPLOYMENT_TARGET">
+<span class="sig-name descname"><span class="pre">MACOSX_DEPLOYMENT_TARGET</span></span><a class="headerlink" href="#envvar-MACOSX_DEPLOYMENT_TARGET" title="Link to this definition">¶</a></dt>
+<dd><p>macOS only.  Specifies the minimum required macOS version to target.  Must
+not be earlier than <code class="docutils literal notranslate"><span class="pre">10.14</span></code>.  If not specified, defaults to the same macOS
+version required by the Python binary itself, or <code class="docutils literal notranslate"><span class="pre">10.14</span></code> if later.</p>
+</dd></dl>
+
+<dl class="std envvar objdesc">
+<dt class="sig sig-object highlight std" id="envvar-TENSORSTORE_PREBUILT_DIR">
+<span class="sig-name descname"><span class="pre">TENSORSTORE_PREBUILT_DIR</span></span><a class="headerlink" href="#envvar-TENSORSTORE_PREBUILT_DIR" title="Link to this definition">¶</a></dt>
+<dd><p>If specified, building is skipped, and instead <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> expects to find
+the pre-built extension module in the specified directory, from a prior
+invocation of <code class="docutils literal notranslate"><span class="pre">build_ext</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><code>python3<span class="w"> </span>setup.py<span class="w"> </span>build_ext<span class="w"> </span>-b<span class="w"> </span>/tmp/prebuilt
+<span class="nv">TENSORSTORE_PREBUILT_DIR</span><span class="o">=</span>/tmp/prebuilt<span class="w"> </span>pip<span class="w"> </span>wheel<span class="w"> </span>.
+</code></pre></div>
+</div>
+</dd></dl>
+
+<h3 id="ipython-shell-without-installing">IPython shell without installing<a class="headerlink" href="#ipython-shell-without-installing" title="Link to this heading">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><code>python3<span class="w"> </span>bazelisk.py<span class="w"> </span>run<span class="w"> </span>-c<span class="w"> </span>opt<span class="w"> </span>//python/tensorstore:shell
+</code></pre></div>
+</div>
+<h2 id="c-api">C++ API<a class="headerlink" href="#c-api" title="Link to this heading">¶</a></h2>
+<p>The C++ API is supported for both <a class="reference external" href="https://bazel.build/">Bazel</a> and <a class="reference external" href="https://cmake.org/">CMake</a> projects.  In either case, it must be added as a
+dependency so that it is built from source and statically linked as part of the
+overall build.</p>
+<h3 id="bazel-integration"><span id="bazel-build"></span>Bazel integration<a class="headerlink" href="#bazel-integration" title="Link to this heading">¶</a></h3>
+<p>To add TensorStore as a dependency to an existing Bazel workspace:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="n">load</span><span class="p">(</span><span class="s2">&quot;@bazel_tools//tools/build_defs/repo:http.bzl&quot;</span><span class="p">,</span> <span class="s2">&quot;http_archive&quot;</span><span class="p">)</span>
+<span class="n">load</span><span class="p">(</span><span class="s2">&quot;@bazel_tools//tools/build_defs/repo:utils.bzl&quot;</span><span class="p">,</span> <span class="s2">&quot;maybe&quot;</span><span class="p">)</span>
+
+<span class="n">maybe</span><span class="p">(</span>
+    <span class="n">http_archive</span><span class="p">,</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;tensorstore&quot;</span><span class="p">,</span>
+    <span class="n">strip_prefix</span> <span class="o">=</span> <span class="s2">&quot;tensorstore-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&quot;</span><span class="p">,</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/google/tensorstore/archive/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.tar.gz&quot;</span><span class="p">,</span>
+    <span class="n">sha256</span> <span class="o">=</span> <span class="s2">&quot;YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">load</span><span class="p">(</span><span class="s2">&quot;@tensorstore//:external.bzl&quot;</span><span class="p">,</span> <span class="s2">&quot;tensorstore_dependencies&quot;</span><span class="p">)</span>
+
+<span class="n">tensorstore_dependencies</span><span class="p">()</span>
+
+<span class="n">load</span><span class="p">(</span><span class="s2">&quot;@bazel_features//:deps.bzl&quot;</span><span class="p">,</span> <span class="s2">&quot;bazel_features_deps&quot;</span><span class="p">)</span>
+
+<span class="n">bazel_features_deps</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<p>Additionally, TensorStore must be built in C++17 mode.  You should add the
+compiler flags specified in the <code class="docutils literal notranslate"><span class="pre">.bazelrc</span></code> file in the TensorStore repository
+to your dependent project’s <code class="docutils literal notranslate"><span class="pre">.bazelrc</span></code>.</p>
+<p>See the <a class="reference internal" href="#build-requirements"><span class="std std-ref">supported C++ toolchains</span></a> listed above.</p>
+<div class="warning admonition">
+<p class="admonition-title">Warning</p>
+<p>MSVC (Windows) has a MAX_PATH limitation of 260 characters which may result
+in errors such as <code class="docutils literal notranslate"><span class="pre">fatal</span> <span class="pre">error</span> <span class="pre">C1083:</span> <span class="pre">Cannot</span> <span class="pre">open</span> <span class="pre">include</span> <span class="pre">file</span></code>.  Such
+errors may be avoided by configuring bazel to use a shorter path by setting
+the bazel startup option <code class="docutils literal notranslate"><span class="pre">--output_base</span></code>.  This may be done by modifying
+the <code class="docutils literal notranslate"><span class="pre">.bazelrc</span></code>, or when building for Python, setting the environment
+variable <code class="docutils literal notranslate"><span class="pre">TENSORSTORE_BAZEL_STARTUP_OPTIONS=&quot;--output_base=C:\\\\Out&quot;</span></code>.</p>
+</div>
+<h3 id="cmake-integration"><span id="cmake-build"></span>CMake integration<a class="headerlink" href="#cmake-integration" title="Link to this heading">¶</a></h3>
+<p>To add TensorStore as a dependency to an existing CMake project:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><code><span class="nb">include</span><span class="p">(</span><span class="s">FetchContent</span><span class="p">)</span>
+
+<span class="nb">FetchContent_Declare</span><span class="p">(</span>
+<span class="w">  </span><span class="s">tensorstore</span>
+<span class="w">  </span><span class="s">URL</span><span class="w"> </span><span class="s2">&quot;https://github.com/google/tensorstore/archive/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.tar.gz&quot;</span>
+<span class="w">  </span><span class="s">URL_HASH</span><span class="w"> </span><span class="s">SHA256=YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY</span>
+<span class="p">)</span>
+
+<span class="c"># Additional FetchContent_Declare calls as needed...</span>
+
+<span class="nb">FetchContent_MakeAvailable</span><span class="p">(</span><span class="s">tensorstore</span><span class="p">)</span>
+
+<span class="c"># Define a target that depends on TensorStore...</span>
+
+<span class="nb">target_link_libraries</span><span class="p">(</span>
+<span class="w">  </span><span class="s">my_target</span>
+<span class="w">  </span><span class="s">PRIVATE</span>
+<span class="w">    </span><span class="s">tensorstore::tensorstore</span><span class="w"> </span><span class="s">tensorstore::all_drivers</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+<p>TensorStore requires that the project is built in C++17 mode.</p>
+<p>The <a class="reference internal" href="#build-requirements"><span class="std std-ref">supported C++ toolchains</span></a> and <a class="reference internal" href="#cmake-build-requirements"><span class="std std-ref">additional system
+requirements</span></a> are listed below.</p>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>Python is used to generate the CMake build rules automatically from the Bazel
+build rules as part of the CMake configuration step.</p>
+</div>
+<h4 id="supported-generators">Supported generators<a class="headerlink" href="#supported-generators" title="Link to this heading">¶</a></h4>
+<p>The following CMake generators are supported:</p>
+<ul class="simple">
+<li><p>Ninja and Ninja Multi-Config</p></li>
+<li><p>Makefile generators</p></li>
+<li><p>Visual Studio generators</p></li>
+<li><p>Xcode (targeting arm64 only)</p></li>
+</ul>
+<p>The Ninja generator is recommended because it provides the fastest builds.</p>
+<h4 id="third-party-dependencies">Third-party dependencies<a class="headerlink" href="#third-party-dependencies" title="Link to this heading">¶</a></h4>
+<p>By default, TensorStore’s CMake build also pulls in all of its dependencies via
+<a class="reference external" href="https://cmake.org/cmake/help/latest/module/FetchContent.html">FetchContent</a>
+and statically links them.  This behavior may be overridden on a per-package
+basis via <code class="samp docutils literal notranslate"><span class="pre">TENSORSTORE_USE_SYSTEM_</span><em><span class="pre">&lt;PACKAGE&gt;</span></em></code> options, which may be set
+on the CMake command line with the syntax
+<code class="samp docutils literal notranslate"><span class="pre">-DTENSORSTORE_USE_SYSTEM_</span><em><span class="pre">&lt;PACKAGE&gt;</span></em><span class="pre">=ON</span></code>.</p>
+<div class="warning admonition">
+<p class="admonition-title">Warning</p>
+<p>Some combinations of system-provided and vendored dependencies can lead to
+symbol collisions, which can result in crashes or incorrect behavior at
+runtime.  For example, if you specify <code class="docutils literal notranslate"><span class="pre">-DTENSORSTORE_USE_SYSTEM_CURL=ON</span></code> to
+use a system-provided CURL, which links with a system-provided ZLIB, then you
+should also specify <code class="docutils literal notranslate"><span class="pre">-DTENSORSTORE_USE_SYSTEM_ZLIB=ON</span></code> as well to ensure
+more than one copy of zlib is not linked into the binary.</p>
+<p>In general it is safest to use either all system-provided dependencies, or
+all vendored dependencies.</p>
+</div>
+<h4 id="build-caching">Build caching<a class="headerlink" href="#build-caching" title="Link to this heading">¶</a></h4>
+<p>When using CMake, it is often helpful to use a build caching tool like <a class="reference external" href="https://github.com/mozilla/sccache">sccache</a> or to speed up re-builds.  To enable
+sccache, specify <code class="docutils literal notranslate"><span class="pre">-DCMAKE_{C,CXX}_COMPILER_LAUNCHER=ccache</span></code> when invoking
+CMake.</p>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>Caching is only supported by the Ninja and Makefile generators.</p>
+</div>
+<h2 id="development">Development<a class="headerlink" href="#development" title="Link to this heading">¶</a></h2>
+<p>For development of TensorStore, ensure that you have the <a class="reference internal" href="#build-requirements"><span class="std std-ref">build
+requirements</span></a> installed.</p>
+<h3 id="building-the-documentation">Building the documentation<a class="headerlink" href="#building-the-documentation" title="Link to this heading">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><code>python3<span class="w"> </span>bazelisk.py<span class="w"> </span>run<span class="w"> </span>//tools/docs:build_docs<span class="w"> </span>--<span class="w"> </span>--output<span class="w"> </span>/tmp/tensorstore-docs
+</code></pre></div>
+</div>
+<h3 id="running-tests">Running tests<a class="headerlink" href="#running-tests" title="Link to this heading">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><code>python3<span class="w"> </span>bazelisk.py<span class="w"> </span><span class="nb">test</span><span class="w"> </span>//...
+</code></pre></div>
+</div>
+<h2 id="build-requirements"><span id="id3"></span>Build Requirements<a class="headerlink" href="#build-requirements" title="Link to this heading">¶</a></h2>
+<p>TensorStore is written in C++ with python bindings and is compatible with the
+following C++ compilers:</p>
+<ul class="simple">
+<li><p>GCC 12 or later (Linux)</p></li>
+<li><p>Clang 16 or later (Linux)</p></li>
+<li><p>Microsoft Visual Studio 2022 version 17.8 (MSVC 14.38) or later</p></li>
+<li><p>Mingw64 GCC 13 or later (Windows); CMake only, Bazel is not supported, and
+<code class="docutils literal notranslate"><span class="pre">lld</span></code> is recommended over <code class="docutils literal notranslate"><span class="pre">ld</span></code> for speed.</p></li>
+<li><p>Apple Xcode 15.0 or later</p></li>
+</ul>
+<p>In order to build from source, one of the above compilers is necessary along
+with some additional tools detailed in the sections below.
+The actual requirements vary depending on how TensorStore is built.  Installing
+the following packages (debian) will satisfy the build requirements
+for the examples in this document:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>build-essential<span class="w"> </span>git<span class="w"> </span>nasm<span class="w"> </span>python3<span class="w"> </span>python3-dev<span class="w"> </span>python3-pip<span class="w"> </span>python3-venv
+</code></pre></div>
+</div>
+<h3 id="bazel-build-requirements"><span id="id4"></span>Bazel Build Requirements<a class="headerlink" href="#bazel-build-requirements" title="Link to this heading">¶</a></h3>
+<p>The <a class="reference external" href="https://bazel.build/">Bazel build system</a> is used automatically when
+building the Python API, and may also be used to <a class="reference internal" href="#bazel-build"><span class="std std-ref">build the C++
+API</span></a> and command-line tools.  You don’t need to install Bazel
+manually; the included copy of <a class="reference external" href="https://github.com/bazelbuild/bazelisk">bazelisk</a> automatically downloads a suitable
+version for your operating system.  Bazelisk requires Python 2.7 or later to
+run.</p>
+<div class="note admonition">
+<p class="admonition-title">Note</p>
+<p>On macOS, starting with Python 3.6, installing Python using the installer
+from <a class="reference external" href="python.org">python.org</a> does not automatically set up Python with the
+SSL/TLS certificates needed by bazelisk.</p>
+<p>If you have not already done so, you need to run the
+<code class="file docutils literal notranslate"><span class="pre">/Applications/Python</span> <span class="pre">3.</span><em><span class="pre">x</span></em><span class="pre">/Install</span> <span class="pre">Certificates.command</span></code> script in
+your Python installation directory.  Refer to the documentation at
+<code class="file docutils literal notranslate"><span class="pre">/Applications/Python</span> <span class="pre">3.</span><em><span class="pre">x</span></em><span class="pre">/ReadMe.rtf</span></code> for more information.</p>
+</div>
+<p>TensorStore depends on a number of third-party libraries.  By default, these
+dependencies are fetched and built automatically as part of the TensorStore
+Bazel build, which requires no additional effort.</p>
+<p>On Linux and macOS, however, it is possible to override this behavior for a
+subset of these libraries and instead link to a system-provided version.  This
+reduces the binary size, and if your system packages are kept up to date,
+ensures TensorStore uses up-to-date versions of these dependencies.</p>
+<dl class="std envvar objdesc">
+<dt class="sig sig-object highlight std" id="envvar-TENSORSTORE_SYSTEM_LIBS">
+<span class="sig-name descname"><span class="pre">TENSORSTORE_SYSTEM_LIBS</span></span><a class="headerlink" href="#envvar-TENSORSTORE_SYSTEM_LIBS" title="Link to this definition">¶</a></dt>
+<dd><p>To use system-provided libraries, set the <span class="target" id="index-1"></span><a class="reference internal" href="#envvar-TENSORSTORE_SYSTEM_LIBS" title="TENSORSTORE_SYSTEM_LIBS (environment variable) — To use system-provided libraries, set the TENSORSTORE_SYSTEM_LIBS environment variable to a comma-separated list of the following identifiers prior to invoking Bazel:"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">TENSORSTORE_SYSTEM_LIBS</span></code></a>
+environment variable to a comma-separated list of the following identifiers
+prior to invoking Bazel:</p>
+</dd></dl>
+
+<dl class="std envvar objdesc">
+<dt class="sig sig-object highlight std" id="envvar-PYTHON_BIN_PATH">
+<span class="sig-name descname"><span class="pre">PYTHON_BIN_PATH</span></span><a class="headerlink" href="#envvar-PYTHON_BIN_PATH" title="Link to this definition">¶</a></dt>
+<dd><p>Path to Python binary to use when running Python executables/tests.  When
+Bazel is invoked by the Python package build (<code class="file docutils literal notranslate"><span class="pre">setup.py</span></code>), this is set
+automatically.</p>
+</dd></dl>
+
+<table class="docutils data align-default" id="id8">
+<caption><span class="caption-text">Required third-party libraries</span><a class="headerlink" href="#id8" title="Link to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Identifier</p></th>
+<th class="head"><p>Bundled library</p></th>
+<th class="head"><p>Version</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">blake3</span></code></p></td>
+<td><p><a class="reference external" href="https://github.com/BLAKE3-team/BLAKE3/">BLAKE3</a></p></td>
+<td><p>1.8.5</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">boringssl</span></code></p></td>
+<td><p><a class="reference external" href="https://github.com/google/boringssl/">boringssl</a></p></td>
+<td><p>0.20260616.0</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">brotli</span></code></p></td>
+<td><p><a class="reference external" href="https://github.com/google/brotli/">brotli</a></p></td>
+<td><p>1.2.1</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">bzip2</span></code></p></td>
+<td><p><a class="reference external" href="https://sourceware.org/pub/bzip2/">bzip2</a></p></td>
+<td><p>1.0.8</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">c_ares</span></code></p></td>
+<td><p><a class="reference external" href="https://github.com/c-ares/c-ares/">c-ares</a></p></td>
+<td><p>1.34.6</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">org_blosc_cblosc</span></code></p></td>
+<td><p><a class="reference external" href="https://github.com/Blosc/c-blosc/">c-blosc</a></p></td>
+<td><p>c8072c21dcce</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">zlib</span></code></p></td>
+<td><p><a class="reference external" href="https://chromium.googlesource.com/chromium/src/third_party/zlib/">chromium-zlib</a></p></td>
+<td><p>1.3.1.1-20260612</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">curl</span></code></p></td>
+<td><p><a class="reference external" href="https://curl.se/">curl</a></p></td>
+<td><p>8.20.0</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">org_aomedia_avif</span></code></p></td>
+<td><p><a class="reference external" href="https://github.com/AOMediaCodec/libavif/">libavif</a></p></td>
+<td><p>1.4.2</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">libjpeg_turbo</span></code></p></td>
+<td><p><a class="reference external" href="https://github.com/libjpeg-turbo/libjpeg-turbo/">libjpeg-turbo</a></p></td>
+<td><p>3.1.1</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">libpng</span></code></p></td>
+<td><p><a class="reference external" href="https://github.com/pnggroup/libpng/">libpng</a></p></td>
+<td><p>1.6.58</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">libwebp</span></code></p></td>
+<td><p><a class="reference external" href="https://github.com/webmproject/libwebp/">libwebp</a></p></td>
+<td><p>1.5.0</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lz4</span></code></p></td>
+<td><p><a class="reference external" href="https://github.com/lz4/lz4">lz4</a></p></td>
+<td><p>1.10.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">nasm</span></code></p></td>
+<td><p><a class="reference external" href="https://www.nasm.us">nasm</a></p></td>
+<td><p>2.16.03</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">org_nghttp2</span></code></p></td>
+<td><p><a class="reference external" href="https://github.com/nghttp2/nghttp2/">nghttp2</a></p></td>
+<td><p>1.69.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">nlohmann_json</span></code></p></td>
+<td><p><a class="reference external" href="https://json.nlohmann.me/">nlohmann/json</a></p></td>
+<td><p>3.12.0</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">com_github_pybind_pybind11</span></code></p></td>
+<td><p><a class="reference external" href="https://pybind11.readthedocs.io/en/stable/">pybind11</a></p></td>
+<td><p>3.0.4</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">snappy</span></code></p></td>
+<td><p><a class="reference external" href="https://github.com/google/snappy/">snappy</a></p></td>
+<td><p>1.2.2-20260612-27ab5f7</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">libtiff</span></code></p></td>
+<td><p><a class="reference external" href="https://download.osgeo.org">tiff</a></p></td>
+<td><p>4.7.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">tinyxml2</span></code></p></td>
+<td><p><a class="reference external" href="https://github.com/leethomason/tinyxml2/">tinyxml2</a></p></td>
+<td><p>11.0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">xz</span></code></p></td>
+<td><p><a class="reference external" href="https://tukaani.org/xz/">xz</a></p></td>
+<td><p>5.8.3</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">zstd</span></code></p></td>
+<td><p><a class="reference external" href="https://github.com/facebook/zstd">zstd</a></p></td>
+<td><p>1.5.7</p></td>
+</tr>
+</tbody>
+</table>
+<p>For example, to run the tests using the system-provided curl, jpeg, and SSL
+libraries:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">TENSORSTORE_SYSTEM_LIBS</span><span class="o">=</span>curl,jpeg,boringssl
+python3<span class="w"> </span>bazelisk.py<span class="w"> </span><span class="nb">test</span><span class="w"> </span>//...
+</code></pre></div>
+</div>
+<h3 id="cmake-build-requirements"><span id="id7"></span>CMake Build Requirements<a class="headerlink" href="#cmake-build-requirements" title="Link to this heading">¶</a></h3>
+<p>In addition to a <a class="reference internal" href="#build-requirements"><span class="std std-ref">supported C++ toolchain</span></a>, the following
+system dependencies are required for the <a class="reference internal" href="#cmake-build"><span class="std std-ref">CMake build</span></a>:</p>
+<ul class="simple">
+<li><p>Python 3.11 or later</p></li>
+<li><p>CMake 3.24 or later</p></li>
+<li><p><a class="reference external" href="https://nasm.us/">NASM</a>, for building libjpeg-turbo, libaom, and dav1d from
+source (default).  Must be in <code class="docutils literal notranslate"><span class="pre">PATH</span></code>.Not required if
+<code class="docutils literal notranslate"><span class="pre">-DTENSORSTORE_USE_SYSTEM_{JPEG,LIBAOM,DAV1D}=ON</span></code> is specified.</p></li>
+<li><p><a class="reference external" href="https://savannah.gnu.org/projects/patch/">GNU Patch</a> or equivalent.  Must
+be in <code class="docutils literal notranslate"><span class="pre">PATH</span></code>.</p></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  
+  
+  <div class="md-footer-meta md-typeset">
+    
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.expand", "navigation.sections", "navigation.top", "toc.follow", "toc.sticky"], "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+      
+        <script src="_static/sphinx_immaterial_theme.32136f45f91ae6956.min.js?v=a7a9472a"></script>
+    
+  </body>
+</html>
